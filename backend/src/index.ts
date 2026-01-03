@@ -10,10 +10,10 @@ import commentRoutes from "./routes/commentRoutes";
 
 const app = express();
 
-app.use(cors({ origin: ENV.FRONTEND_URL }));
+app.use(cors({ origin: ENV.FRONTEND_URL, credentials: true })); // `credentials: true` memungkinkan frontend untuk mengirimkan cookie ke backend sehingga we dapat mengautentikasi user.
 app.use(clerkMiddleware()); // auth object be attached to the req
 app.use(express.json()); // parses JSON request bodies
-app.use(express.urlencoded({ extended: true })); // parses form data (like HTML forms)
+app.use(express.urlencoded({ extended: true })); // parses form data (mirip HTML forms)
 
 app.get("/", (req, res) => {
   res.json({
