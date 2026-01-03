@@ -10,7 +10,7 @@ import useUserSync from "./hooks/useUserSync";
 
 
 function App() {
-  const { isClerkLoaded, isSignedIn } = useAuthReq();
+  const { isClerkLoaded } = useAuthReq();
   useUserSync();
 
   if (!isClerkLoaded) return null;
